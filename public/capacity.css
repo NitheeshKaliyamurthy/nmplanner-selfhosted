@@ -1,0 +1,71 @@
+.capacity-status {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  display: grid;
+  gap: 4px;
+  border-radius: 11px;
+  font-size: .82rem;
+  line-height: 1.45;
+}
+.capacity-status strong { font-size: .8rem; }
+.capacity-status span { color: inherit; opacity: .9; }
+.capacity-status.healthy { color: #245c47; background: #eef8f3; border: 1px solid #cfe7db; }
+.capacity-status.warning { color: #8a5a00; background: #fff8e8; border: 1px solid #f1d89a; }
+.capacity-status.full { color: #6d4b00; background: #fff4d6; border: 1px solid #e8c86f; }
+.capacity-status.blocked { color: #9e3434; background: #fff1f1; border: 1px solid #efcaca; }
+.q1-count.near { color: #8a5a00; background: #fff8e8; }
+.q1-count.full { color: white; background: #c94040; }
+
+
+.weekly-area-capacity-strip {
+  margin: -2px 0 16px;
+  padding: 10px 12px;
+  border: 1px solid #dce5ee;
+  border-radius: 12px;
+  background: #fbfcfe;
+}
+.weekly-area-capacity-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.weekly-area-capacity-heading strong {
+  font-size: .76rem;
+}
+.weekly-area-capacity-heading span {
+  color: var(--muted);
+  font-size: .61rem;
+}
+.weekly-area-capacity-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.weekly-area-capacity-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 6px 8px;
+  border: 1px solid #dde5ec;
+  border-radius: 9px;
+  background: #fff;
+  font-size: .64rem;
+}
+.weekly-area-capacity-chip b {
+  font-weight: 850;
+}
+.weekly-area-capacity-chip em {
+  color: var(--muted);
+  font-size: .56rem;
+  font-style: normal;
+}
+.weekly-area-capacity-chip.near {
+  border-color: #e7c983;
+  background: #fffaf0;
+}
+.weekly-area-capacity-chip.over {
+  border-color: #e3b0aa;
+  background: #fff6f4;
+}

@@ -1,0 +1,35 @@
+.day-rank-field small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: .7rem;
+  line-height: 1.35;
+}
+
+.days-grid .compact-task[data-day-rank] {
+  position: relative;
+  padding-left: 43px;
+}
+
+.day-rank-badge {
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  color: var(--navy) !important;
+  background: #eaf2fb;
+  border: 1px solid #cddff2;
+  border-radius: 8px;
+  font-size: .72rem !important;
+  font-weight: 900;
+  line-height: 1;
+}
+
+@media (max-width: 760px) {
+  .days-grid .compact-task[data-day-rank] {
+    padding-left: 43px;
+  }
+}
