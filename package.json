@@ -1,0 +1,15 @@
+{
+  "name": "nmplanner",
+  "version": "1.0.0",
+  "description": "Self-hosted weekly planner with Eisenhower priorities, capacity protection, routines, calendar import and planning insights.",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "build": "npm run check && node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
