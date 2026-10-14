@@ -1,4 +1,4 @@
-const CACHE = "nmplanner-shell-v92";
+const CACHE = "nmplanner-shell-v93";
 
 const SHELL = [
   "/",
