@@ -1,0 +1,417 @@
+.days-grid .day-card {
+  overflow: hidden;
+}
+
+.days-grid .day-task-list-compact {
+  max-height: 138px;
+  padding: 4px 8px 7px;
+  overflow-y: auto;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.days-grid .day-task-list-compact .compact-task[data-id] {
+  min-height: 30px;
+  margin: 2px 0;
+  padding: 5px 40px 5px 8px;
+  border-radius: 7px;
+  line-height: 1.1;
+}
+
+.days-grid .day-task-list-compact .compact-task strong {
+  font-size: .69rem;
+  line-height: 1.15;
+}
+
+.days-grid .day-task-list-compact .compact-task > span:not(.day-task-start-badge) {
+  margin-top: 2px;
+  font-size: .58rem;
+  line-height: 1.1;
+}
+
+.days-grid .day-task-list-compact .compact-task[data-day-quadrant]::after {
+  top: 7px;
+  right: 6px;
+  min-width: 22px;
+  padding: 3px 4px;
+  font-size: .54rem;
+}
+
+.day-task-start-badge {
+  position: absolute;
+  right: 34px;
+  bottom: 4px;
+  padding: 2px 4px;
+  color: #355f89 !important;
+  background: #eaf3fb;
+  border-radius: 5px;
+  font-size: .52rem !important;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.day-task-list-compact.timeline-list-drop {
+  background: #eef7ff !important;
+  outline: 2px dashed #4e89c5;
+  outline-offset: -3px;
+}
+
+.day-timeline-migration {
+  grid-column: 1 / -1;
+  margin-bottom: 12px;
+  padding: 11px 13px;
+  display: grid;
+  gap: 3px;
+  color: #7a5200;
+  background: #fff8e6;
+  border: 1px solid #efd592;
+  border-radius: 11px;
+}
+
+.day-timeline-migration strong {
+  font-size: .78rem;
+}
+
+.day-timeline-migration span {
+  font-size: .7rem;
+  line-height: 1.4;
+}
+
+.day-timeboard {
+  padding: 8px 8px 9px;
+  background: #fbfcfe;
+}
+
+.day-timeboard-heading {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.day-timeboard-heading strong {
+  font-size: .68rem;
+  letter-spacing: .02em;
+}
+
+.day-timeboard-heading span,
+.day-timeboard-help {
+  color: var(--muted);
+  font-size: .56rem;
+  line-height: 1.3;
+}
+
+.day-timeline-viewport {
+  height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: white;
+  border: 1px solid #e4eaf1;
+  border-radius: 9px;
+  scrollbar-width: thin;
+}
+
+.day-timeline {
+  position: relative;
+  height: var(--timeline-height);
+  min-height: var(--timeline-height);
+  background-color: #fff;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--slot-px) - 1px),
+      #edf1f5 calc(var(--slot-px) - 1px),
+      #edf1f5 var(--slot-px)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--hour-px) - 1px),
+      #cfd8e3 calc(var(--hour-px) - 1px),
+      #cfd8e3 var(--hour-px)
+    );
+}
+
+.day-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 43px;
+  width: 1px;
+  background: #dce3eb;
+  z-index: 1;
+}
+
+.day-timeline-hours {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 42px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.day-timeline-hour {
+  position: absolute;
+  left: 3px;
+  width: 36px;
+  transform: translateY(-50%);
+  color: #7c8999;
+  font-size: .51rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-align: right;
+}
+
+.day-timeline-now {
+  position: absolute;
+  left: 43px;
+  right: 4px;
+  z-index: 7;
+  height: 0;
+  border-top: 2px solid #d9485f;
+  pointer-events: none;
+}
+
+.day-timeline-now::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background: #d9485f;
+  border-radius: 50%;
+}
+
+.day-timeline-now span {
+  position: absolute;
+  top: -10px;
+  right: 2px;
+  padding: 2px 5px;
+  color: #8f2437;
+  background: #fff1f3;
+  border: 1px solid #efb3bd;
+  border-radius: 999px;
+  font-size: .48rem;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.day-timeline-events {
+  position: absolute;
+  inset: 0 4px 0 47px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.day-timeline-task {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 15px;
+  padding: 2px 5px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  text-align: left;
+  color: #243548;
+  background: #f3f6f9;
+  border: 1px solid #cfd8e3;
+  border-left-width: 3px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(21, 45, 72, .06);
+  cursor: grab;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.day-timeline-task:active,
+.day-timeline-task.timeline-dragging {
+  cursor: grabbing;
+  opacity: .55;
+}
+
+.day-timeline-task-time {
+  font-size: .47rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.day-timeline-task strong {
+  overflow: hidden;
+  font-size: .58rem;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.day-timeline-task small {
+  color: #718096;
+  font-size: .48rem;
+  white-space: nowrap;
+}
+
+.day-timeline-task.q-q1 {
+  background: #fff0f0;
+  border-color: #edc5c5;
+  border-left-color: #c94040;
+}
+
+.day-timeline-task.q-q2 {
+  background: #edf8f1;
+  border-color: #c9e5d4;
+  border-left-color: #2f855a;
+}
+
+.day-timeline-task.q-q3 {
+  background: #fff7e7;
+  border-color: #efd9ad;
+  border-left-color: #d97706;
+}
+
+.day-timeline-task.q-q4 {
+  background: #f1f4f7;
+  border-color: #d5dbe3;
+  border-left-color: #64748b;
+}
+
+.day-timeline-task.q-none {
+  background: #f7f9fb;
+  border-left-color: #9aa7b7;
+}
+
+.day-timeline-drop-marker {
+  position: absolute;
+  left: 47px;
+  right: 4px;
+  z-index: 3;
+  pointer-events: none;
+  background: rgba(55, 125, 190, .10);
+  border: 1px dashed #377dbe;
+  border-radius: 5px;
+}
+
+.day-timeline-drop-marker span {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  padding: 1px 3px;
+  color: #255f94;
+  background: #edf6ff;
+  border-radius: 4px;
+  font-size: .5rem;
+  font-weight: 900;
+}
+
+.day-timeboard-help {
+  display: block;
+  margin-top: 5px;
+}
+
+.timeline-reschedule-dialog .day-drag-move-summary span {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1150px) {
+  .day-timeline-viewport {
+    height: 320px;
+  }
+}
+
+@media (max-width: 700px) {
+  .days-grid .day-task-list-compact {
+    max-height: 180px;
+  }
+
+  .day-timeline-viewport {
+    height: 390px;
+  }
+
+  .day-timeline-task strong {
+    font-size: .64rem;
+  }
+}
+
+
+/* Focus-area colours for all Day Plan tasks.
+   Routine-specific colours in routine-templates.css intentionally override these. */
+.days-grid .day-timeline-task.area-bcu {
+  background: #1D4ED8;
+  border-color: #1E40AF;
+  color: #fff;
+}
+.days-grid .day-timeline-task.area-research {
+  background: #F59E0B;
+  border-color: #B45309;
+  color: #2D1B00;
+}
+.days-grid .day-timeline-task.area-worldskills {
+  background: #16A34A;
+  border-color: #15803D;
+  color: #fff;
+}
+.days-grid .day-timeline-task.area-family {
+  background: #DC2626;
+  border-color: #B91C1C;
+  color: #fff;
+}
+.days-grid .day-timeline-task.area-personal {
+  background: #06B6D4;
+  border-color: #0891B2;
+  color: #063B45;
+}
+.days-grid .day-timeline-task.area-other {
+  background: #8B5E3C;
+  border-color: #6F472D;
+  color: #fff;
+}
+
+.days-grid .day-timeline-task.area-bcu small,
+.days-grid .day-timeline-task.area-worldskills small,
+.days-grid .day-timeline-task.area-family small,
+.days-grid .day-timeline-task.area-other small {
+  color: rgba(255,255,255,.82);
+}
+.days-grid .day-timeline-task.area-research small,
+.days-grid .day-timeline-task.area-personal small {
+  color: rgba(25,35,42,.78);
+}
+
+/* Multi-area tasks keep the primary-area colour and add a clear diagonal marker. */
+.days-grid .day-timeline-task.area-multiple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,.22) 0,
+    rgba(255,255,255,.22) 3px,
+    transparent 3px,
+    transparent 8px
+  );
+}
+
+/* Untimed/compact tasks use the same area colour as a strong left accent. */
+.days-grid .day-task-list-compact .compact-task.area-bcu { border-left: 5px solid #1D4ED8; }
+.days-grid .day-task-list-compact .compact-task.area-research { border-left: 5px solid #F59E0B; }
+.days-grid .day-task-list-compact .compact-task.area-worldskills { border-left: 5px solid #16A34A; }
+.days-grid .day-task-list-compact .compact-task.area-family { border-left: 5px solid #DC2626; }
+.days-grid .day-task-list-compact .compact-task.area-personal { border-left: 5px solid #06B6D4; }
+.days-grid .day-task-list-compact .compact-task.area-other { border-left: 5px solid #8B5E3C; }
+
+.days-grid .day-task-list-compact .compact-task.area-multiple {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(30,64,175,.045) 0,
+    rgba(30,64,175,.045) 4px,
+    transparent 4px,
+    transparent 10px
+  );
+}

@@ -1,0 +1,24 @@
+.days-grid .day-task-list-compact .compact-task.day-list-time-scheduled {
+  display: none !important;
+}
+
+.day-unscheduled-empty {
+  min-height: 30px;
+  padding: 7px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8290a0;
+  background: #f8fafc;
+  border: 1px dashed #d8e0e9;
+  border-radius: 7px;
+  font-size: .58rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.day-task-list-compact.timeline-list-drop .day-unscheduled-empty {
+  color: #255f94;
+  background: #eef7ff;
+  border-color: #4e89c5;
+}
