@@ -5,8 +5,8 @@
   const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const AREAS = ["BCU / Teaching", "Research", "WorldSkills", "Family / Home", "Personal Time"];
   const FALLBACK = {
-    work_name: "Primary Work",
-    additional_work_name: "Additional Work",
+    work_name: "BCU / Teaching",
+    additional_work_name: "WorldSkills",
     work_weekly_minutes: 2220,
     work_daily_minutes: 600,
     q1_daily_minutes: 240,
@@ -357,6 +357,71 @@
     return Math.round(minutes / 60);
   }
 
+  function gapMinutes(gaps) {
+    return gaps.reduce((sum, gap) => sum + Math.max(0, Number(gap.end || 0) - Number(gap.start || 0)), 0);
+  }
+
+  function busiestGapHour(gaps) {
+    const buckets = Array(24).fill(0);
+    for (const gap of gaps) {
+      const start = Math.max(0, Math.min(1440, Number(gap.start || 0)));
+      const end = Math.max(start, Math.min(1440, Number(gap.end || 0)));
+      for (let hour = 0; hour < 24; hour += 1) {
+        const bucketStart = hour * 60;
+        const bucketEnd = bucketStart + 60;
+        buckets[hour] += Math.max(0, Math.min(end, bucketEnd) - Math.max(start, bucketStart));
+      }
+    }
+    const peak = Math.max(...buckets);
+    if (!peak) return { label: "none", minutes: 0 };
+    const hour = buckets.indexOf(peak);
+    return {
+      label: `${formatClock(hour * 60)}–${formatClock((hour + 1) * 60)}`,
+      minutes: peak,
+    };
+  }
+
+  function weeklyUnaccountedStats() {
+    const byDay = DAYS.map((day, index) => {
+      const segments = timedSegmentsForDay(index, {});
+      const accounted = coverageMinutes(segments);
+      const groups = classifyUnaccountedGaps(gapsFromCoverage(segments));
+      return {
+        day,
+        accounted,
+        small: groups.small,
+        long: groups.long,
+        smallMinutes: groups.smallMinutes,
+        longMinutes: gapMinutes(groups.long),
+      };
+    });
+
+    const plannedMinutes = byDay.reduce((sum, row) => sum + row.accounted, 0);
+    const totalMinutes = 7 * 1440;
+    const smallMinutes = byDay.reduce((sum, row) => sum + row.smallMinutes, 0);
+    const longMinutes = byDay.reduce((sum, row) => sum + row.longMinutes, 0);
+    const unaccountedMinutes = Math.max(0, totalMinutes - plannedMinutes);
+
+    const busiestDay = (key) => {
+      const best = byDay.reduce((winner, row) => !winner || row[key] > winner[key] ? row : winner, null);
+      return best && best[key] > 0 ? { day: best.day, minutes: best[key] } : { day: "none", minutes: 0 };
+    };
+
+    return {
+      plannedMinutes,
+      totalMinutes,
+      unaccountedMinutes,
+      smallMinutes,
+      longMinutes,
+      smallBreaks: byDay.reduce((sum, row) => sum + row.small.length, 0),
+      longGaps: byDay.reduce((sum, row) => sum + row.long.length, 0),
+      smallDay: busiestDay("smallMinutes"),
+      longDay: busiestDay("longMinutes"),
+      smallTime: busiestGapHour(byDay.flatMap((row) => row.small)),
+      longTime: busiestGapHour(byDay.flatMap((row) => row.long)),
+    };
+  }
+
   function formatDateTimeLocalInput(date) {
     const pad = (value) => String(value).padStart(2, "0");
     return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
@@ -629,6 +694,27 @@
               </div>
             </div>`;
         }).join("")}
+        <section class="weekly-unaccounted-summary" aria-label="Weekly unaccounted time summary">
+          <div class="weekly-unaccounted-total">
+            <strong>Total Unaccounted Time in the Week</strong>
+            <span>${formatMinutes(weeklyGaps.plannedMinutes)} planned out of 168h · ${formatMinutes(weeklyGaps.unaccountedMinutes)} unaccounted · ${formatMinutes(weeklyGaps.smallMinutes)} of that is Small Breaks</span>
+          </div>
+          <div class="weekly-unaccounted-stats">
+            <article class="unaccounted-stat-card small-breaks">
+              <strong>Unaccounted Small Breaks</strong>
+              <span>Total: ${formatMinutes(weeklyGaps.smallMinutes)} · ${weeklyGaps.smallBreaks} breaks · Average ${formatMinutes(weeklyGaps.smallMinutes / 7)}/day</span>
+              <span>Most on: ${escapeHtml(weeklyGaps.smallDay.day)} · ${formatMinutes(weeklyGaps.smallDay.minutes)}</span>
+              <span>Most common time: ${escapeHtml(weeklyGaps.smallTime.label)}</span>
+            </article>
+            <article class="unaccounted-stat-card long-gaps">
+              <strong>Unaccounted Time <em>(excluding Small Breaks)</em></strong>
+              <span>Total: ${formatMinutes(weeklyGaps.longMinutes)} · ${weeklyGaps.longGaps} gaps · Average ${formatMinutes(weeklyGaps.longMinutes / 7)}/day</span>
+              <span>Most on: ${escapeHtml(weeklyGaps.longDay.day)} · ${formatMinutes(weeklyGaps.longDay.minutes)}</span>
+              <span>Most common time: ${escapeHtml(weeklyGaps.longTime.label)}</span>
+            </article>
+          </div>
+          <p class="weekly-unaccounted-note">Small Break = a gap of 30 minutes or less between two accounted activities. Longer gaps, plus unaccounted time before the first or after the last activity of a day, remain Unaccounted Time.</p>
+        </section>
       </div>`;
   }
 
@@ -640,6 +726,7 @@
   }
 
   function dailyChart(m, cfg) {
+    const weeklyGaps = weeklyUnaccountedStats();
     return `
       <div class="daily-balance-chart chronological">
         <div class="daily-balance-legend" aria-label="Daily time allocation legend">
