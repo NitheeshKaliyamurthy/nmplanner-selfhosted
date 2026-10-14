@@ -946,3 +946,62 @@
     transparent 7px
   );
 }
+
+
+.weekly-unaccounted-summary {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid #dce4ec;
+  display: grid;
+  gap: 10px;
+}
+.weekly-unaccounted-total {
+  padding: 11px 13px;
+  display: grid;
+  gap: 3px;
+  border: 1px solid #d8e1ea;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+.weekly-unaccounted-total strong { font-size: .76rem; }
+.weekly-unaccounted-total span {
+  color: #41536a;
+  font-size: .68rem;
+  line-height: 1.45;
+}
+.weekly-unaccounted-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.unaccounted-stat-card {
+  padding: 11px 13px;
+  display: grid;
+  gap: 4px;
+  border: 1px solid #dde5ed;
+  border-radius: 10px;
+  background: #fff;
+}
+.unaccounted-stat-card strong { font-size: .72rem; }
+.unaccounted-stat-card strong em {
+  color: var(--muted);
+  font-size: .61rem;
+  font-style: normal;
+  font-weight: 600;
+}
+.unaccounted-stat-card span {
+  color: #526273;
+  font-size: .63rem;
+  line-height: 1.4;
+}
+.unaccounted-stat-card.small-breaks { border-left: 4px solid #94a3b8; }
+.unaccounted-stat-card.long-gaps { border-left: 4px solid #64748b; }
+.weekly-unaccounted-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: .59rem;
+  line-height: 1.45;
+}
+@media (max-width: 760px) {
+  .weekly-unaccounted-stats { grid-template-columns: 1fr; }
+}
