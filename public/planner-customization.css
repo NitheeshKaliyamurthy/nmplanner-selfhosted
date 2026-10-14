@@ -1,0 +1,395 @@
+.planner-targets-card {
+  grid-column: 1 / -1;
+  align-items: flex-start;
+}
+
+.planner-targets-copy {
+  min-width: 0;
+  width: 100%;
+}
+
+.planner-targets-copy > p {
+  margin: 4px 0 16px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.planner-config-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.planner-target-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(135px, 1fr));
+  gap: 12px;
+}
+
+.planner-target-grid label,
+.planner-config-grid label {
+  display: grid;
+  gap: 6px;
+}
+
+.planner-target-grid label > span,
+.planner-config-grid label > span {
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+.planner-target-grid input,
+.planner-config-grid input {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  color: var(--ink);
+}
+
+.planner-target-grid small,
+.planner-config-grid small,
+.planner-target-actions > span {
+  color: var(--muted);
+  font-size: .68rem;
+  line-height: 1.35;
+}
+
+.planner-target-actions {
+  margin-top: 15px;
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.day-balance-strip {
+  margin: 0 12px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.day-balance-chip {
+  padding: 4px 7px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--muted);
+  background: #f6f8fb;
+  border: 1px solid #e6ebf2;
+  border-radius: 999px;
+  font-size: .65rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.day-balance-chip b {
+  color: var(--ink);
+  font-size: .64rem;
+}
+
+.day-balance-chip.hard-full {
+  color: #9f2f2f;
+  background: #fff0f0;
+  border-color: #efc8c8;
+}
+
+.day-balance-chip.wellbeing-low {
+  color: #8a5b00;
+  background: #fff8e6;
+  border-color: #f1d899;
+}
+
+.day-balance-chip.day-overbooked,
+.balance-day-row .balance-overbooked {
+  color: #9f2f2f;
+  background: #fff0f0;
+  border-color: #efc8c8;
+}
+
+.balance-dashboard {
+  margin-top: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.balance-heading,
+.balance-panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.balance-heading {
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+}
+
+.balance-heading h2,
+.balance-panel-heading h3 {
+  margin: 3px 0 0;
+}
+
+.balance-heading p:last-child,
+.balance-panel-heading span {
+  color: var(--muted);
+  font-size: .74rem;
+  line-height: 1.45;
+}
+
+.balance-target-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.balance-target-card {
+  padding: 14px;
+  display: grid;
+  gap: 4px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+
+.balance-target-card > span {
+  color: var(--muted);
+  font-size: .7rem;
+  font-weight: 750;
+}
+
+.balance-target-card > strong {
+  font-size: 1.05rem;
+}
+
+.balance-target-card > small {
+  color: var(--muted);
+  font-size: .67rem;
+  line-height: 1.4;
+}
+
+.balance-target-card.hard {
+  border-left: 4px solid #c94040;
+}
+
+.balance-target-card.recommended {
+  border-left: 4px solid #2f855a;
+}
+
+.balance-panel {
+  padding: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+}
+
+.balance-day-table,
+.balance-log-list,
+.balance-focus-list,
+.balance-cues {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.balance-day-row {
+  padding: 10px 11px;
+  display: grid;
+  grid-template-columns: minmax(105px, 1.2fr) repeat(9, minmax(72px, 1fr));
+  gap: 7px;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e6ebf2;
+  border-radius: 10px;
+}
+
+.balance-day-row > div,
+.balance-day-row > span {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.balance-day-row > div span,
+.balance-day-row > span b {
+  color: var(--muted);
+  font-size: .62rem;
+}
+
+.balance-day-row > span {
+  padding: 3px 4px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: .68rem;
+  font-weight: 700;
+}
+
+.balance-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.balance-cues p {
+  margin: 0;
+  padding: 10px 11px;
+  background: #f8fafc;
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+.balance-focus-list > div {
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.balance-focus-list > div:last-child {
+  border-bottom: 0;
+}
+
+.balance-focus-list span {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.balance-log-heading {
+  align-items: center;
+}
+
+.balance-log-row {
+  padding: 11px;
+  display: grid;
+  grid-template-columns: 110px 115px minmax(150px, 1fr) 90px auto;
+  gap: 8px;
+  align-items: end;
+  background: #f8fafc;
+  border: 1px solid #e6ebf2;
+  border-radius: 11px;
+}
+
+.balance-log-row > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+
+.balance-log-row > div:first-child span,
+.balance-log-row label span {
+  color: var(--muted);
+  font-size: .64rem;
+}
+
+.balance-log-row label {
+  display: grid;
+  gap: 4px;
+}
+
+.balance-log-row input,
+.balance-log-row select {
+  min-width: 0;
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.balance-walk-list {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.balance-walk-chip,
+.balance-no-entry {
+  padding: 4px 7px;
+  color: var(--muted);
+  background: white;
+  border: 1px solid #e4eaf1;
+  border-radius: 999px;
+  font-size: .65rem;
+}
+
+.balance-walk-chip button {
+  margin-left: 4px;
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .planner-target-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .balance-target-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .balance-day-row {
+    grid-template-columns: repeat(4, minmax(90px, 1fr));
+  }
+
+  .balance-day-row > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .balance-log-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .balance-log-row > div:first-child,
+  .balance-walk-list {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .planner-target-grid,
+  .planner-config-grid,
+  .balance-target-grid,
+  .balance-two-column,
+  .balance-log-row {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-target-actions,
+  .balance-heading,
+  .balance-panel-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .day-balance-strip {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .day-balance-chip {
+    white-space: normal;
+  }
+
+  .balance-day-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .balance-log-row > div:first-child,
+  .balance-walk-list {
+    grid-column: 1;
+  }
+}

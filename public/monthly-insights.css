@@ -1,0 +1,362 @@
+.monthly-insights-panel {
+  margin-top: 16px;
+}
+
+.monthly-insights-heading {
+  align-items: flex-start;
+}
+
+.monthly-insights-heading h2 {
+  margin: 2px 0 3px;
+}
+
+.monthly-insights-heading span {
+  color: var(--muted);
+  font-size: .7rem;
+  line-height: 1.4;
+}
+
+.monthly-window-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  background: #f4f7fa;
+  border: 1px solid #e2e8ef;
+  border-radius: 999px;
+}
+
+.monthly-window-switch button {
+  padding: 5px 8px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  font-size: .62rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.monthly-window-switch button.active {
+  color: #173f67;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(21, 45, 72, .12);
+}
+
+.monthly-insights-body {
+  padding: 18px 20px 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.monthly-schema-note {
+  padding: 10px 12px;
+  display: grid;
+  gap: 2px;
+  color: #71510b;
+  background: #fff9e9;
+  border: 1px solid #ead59b;
+  border-radius: 10px;
+}
+
+.monthly-schema-note strong {
+  font-size: .72rem;
+}
+
+.monthly-schema-note span {
+  font-size: .65rem;
+  line-height: 1.4;
+}
+
+.monthly-score-hero {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.monthly-score-ring {
+  --monthly-score: 0deg;
+  width: 86px;
+  height: 86px;
+  flex: 0 0 86px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at center, #fff 0 61%, transparent 62%),
+    conic-gradient(#2f6ea8 var(--monthly-score), #e8edf2 0);
+  border-radius: 50%;
+}
+
+.monthly-score-ring strong {
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.monthly-score-ring span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .58rem;
+  font-weight: 800;
+}
+
+.monthly-score-hero h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.monthly-score-hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.45;
+}
+
+.monthly-score-chart {
+  min-height: 128px;
+  padding: 10px 8px 4px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(42px, 1fr);
+  gap: 8px;
+  align-items: end;
+  background: #fafbfd;
+  border: 1px solid #e8edf2;
+  border-radius: 11px;
+}
+
+.monthly-score-column {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 88px auto auto;
+  gap: 3px;
+  align-items: end;
+  text-align: center;
+}
+
+.monthly-score-track {
+  height: 88px;
+  display: flex;
+  align-items: flex-end;
+  background: #eef2f6;
+  border-radius: 7px 7px 3px 3px;
+  overflow: hidden;
+}
+
+.monthly-score-track span {
+  width: 100%;
+  min-height: 4px;
+  background: #4c7fb0;
+}
+
+.monthly-score-column strong {
+  font-size: .66rem;
+}
+
+.monthly-score-column small {
+  color: var(--muted);
+  font-size: .56rem;
+  white-space: nowrap;
+}
+
+.monthly-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.monthly-metric-grid > div,
+.monthly-workload-split > div {
+  min-width: 0;
+  padding: 10px;
+  display: grid;
+  gap: 3px;
+  background: #f8fafc;
+  border: 1px solid #e5ebf1;
+  border-radius: 9px;
+}
+
+.monthly-metric-grid strong {
+  font-size: .9rem;
+}
+
+.monthly-metric-grid span,
+.monthly-workload-split span {
+  color: var(--muted);
+  font-size: .6rem;
+  line-height: 1.35;
+}
+
+.monthly-workload-split {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.monthly-workload-split strong {
+  font-size: .72rem;
+}
+
+.monthly-actions {
+  padding: 12px 14px;
+  background: #fbfcfd;
+  border: 1px solid #e6ebf1;
+  border-radius: 10px;
+}
+
+.monthly-actions ul {
+  margin: 8px 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.monthly-actions li {
+  color: #334155;
+  font-size: .69rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1050px) {
+  .monthly-metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .monthly-insights-heading {
+    display: grid;
+    gap: 10px;
+  }
+
+  .monthly-score-hero {
+    align-items: flex-start;
+  }
+
+  .monthly-metric-grid,
+  .monthly-workload-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .monthly-metric-grid,
+  .monthly-workload-split {
+    grid-template-columns: 1fr;
+  }
+
+  .monthly-score-chart {
+    overflow-x: auto;
+  }
+}
+
+.monthly-priority-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+
+.monthly-priority-split > span {
+  padding: 6px 8px;
+  color: var(--muted);
+  background: #f8fafc;
+  border: 1px solid #e5ebf1;
+  border-radius: 999px;
+  font-size: .62rem;
+}
+
+.monthly-priority-split b {
+  color: var(--ink);
+}
+
+.monthly-archive-badge {
+  color: #355f89 !important;
+  background: #edf5fb !important;
+  border-color: #c8dceb !important;
+  font-weight: 800;
+}
+
+
+.insights-mode-switch {
+  width: fit-content;
+  margin: 0 0 14px auto;
+  padding: 4px;
+  display: inline-flex;
+  gap: 4px;
+  background: #eef2f6;
+  border: 1px solid #dce4eb;
+  border-radius: 999px;
+}
+
+.insights-mode-switch button {
+  min-width: 78px;
+  padding: 7px 13px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  font-size: .7rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.insights-mode-switch button.active {
+  color: #173f67;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(21, 45, 72, .14);
+}
+
+.monthly-score-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.monthly-score-breakdown > div {
+  min-width: 0;
+  padding: 9px 10px;
+  display: grid;
+  gap: 4px;
+  background: #fbfcfd;
+  border: 1px solid #e5ebf1;
+  border-radius: 9px;
+}
+
+.monthly-score-breakdown span {
+  color: var(--muted);
+  font-size: .6rem;
+  line-height: 1.35;
+}
+
+.monthly-score-breakdown strong {
+  color: var(--ink);
+  font-size: .7rem;
+}
+
+.monthly-score-note {
+  margin-top: -8px;
+  color: var(--muted);
+  font-size: .6rem;
+  line-height: 1.45;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .insights-mode-switch {
+    margin-left: 0;
+  }
+
+  .monthly-score-breakdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .monthly-score-breakdown {
+    grid-template-columns: 1fr;
+  }
+}
