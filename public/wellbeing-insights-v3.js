@@ -919,16 +919,21 @@
   }
 
   async function render(force = false) {
-    const insightLayout = document.querySelector(".insight-layout");
-    if (!insightLayout) {
+    if (!document.querySelector(".insight-layout")) {
       document.querySelector("[data-wellbeing-dashboard]")?.remove();
       return;
     }
     if (!await loadWeek(force)) return;
     const cfg = await settings();
     const m = metrics(cfg);
+
+    // Other Insights modules can redraw the page while the async Supabase reads
+    // above are in flight. Always reacquire the live layout node immediately
+    // before insertion so the dashboard is never attached to a stale/detached node.
+    const liveInsightLayout = document.querySelector(".insight-layout");
+    if (!liveInsightLayout) return;
     document.querySelector("[data-wellbeing-dashboard]")?.remove();
-    insightLayout.insertAdjacentHTML("afterend", markup(m, cfg));
+    liveInsightLayout.insertAdjacentHTML("afterend", markup(m, cfg));
   }
 
   async function addSleepSession() {
