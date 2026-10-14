@@ -1,0 +1,258 @@
+.calendar-foundation-copy,
+.data-lifecycle-card > div:last-child {
+  min-width: 0;
+}
+
+.calendar-foundation-copy p,
+.data-lifecycle-card p {
+  margin: 4px 0 8px;
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+.calendar-foundation-rules {
+  margin-top: 10px;
+  display: grid;
+  gap: 5px;
+}
+
+.calendar-foundation-rules span {
+  color: #475569;
+  font-size: .66rem;
+  line-height: 1.45;
+}
+
+.calendar-setup-note,
+.archive-guidance {
+  margin-top: 10px;
+  padding: 9px 10px;
+  color: #5a4a12;
+  background: #fff9e8;
+  border: 1px solid #ead9a7;
+  border-radius: 9px;
+  font-size: .64rem;
+  line-height: 1.45;
+}
+
+.calendar-setup-note code {
+  font-size: .62rem;
+}
+
+.storage-profile {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.storage-profile > div {
+  padding: 9px 10px;
+  display: grid;
+  gap: 2px;
+  background: #f8fafc;
+  border: 1px solid #e5ebf1;
+  border-radius: 9px;
+}
+
+.storage-profile strong {
+  font-size: .85rem;
+}
+
+.storage-profile span,
+.retention-controls span,
+.storage-privacy-note {
+  color: var(--muted);
+  font-size: .6rem;
+  line-height: 1.4;
+}
+
+.retention-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.retention-controls label {
+  display: grid;
+  gap: 4px;
+}
+
+.retention-controls select {
+  width: 100%;
+  padding: 7px 8px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #d9e1e8;
+  border-radius: 8px;
+  font: inherit;
+  font-size: .68rem;
+}
+
+.calendar-foundation-actions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.archive-guidance {
+  display: grid;
+  gap: 2px;
+  color: #315a43;
+  background: #eef8f2;
+  border-color: #c8e4d2;
+}
+
+.archive-guidance.attention {
+  color: #7a4b00;
+  background: #fff7e7;
+  border-color: #ebd09a;
+}
+
+.archive-guidance strong {
+  font-size: .67rem;
+}
+
+.archive-guidance span {
+  font-size: .62rem;
+  line-height: 1.45;
+}
+
+.storage-privacy-note {
+  display: block;
+  margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+  .storage-profile,
+  .retention-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+.microsoft-sync-controls {
+  margin-top: 10px;
+  padding-top: 10px;
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid #e8edf2;
+}
+
+.microsoft-sync-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.microsoft-sync-status small {
+  color: var(--muted);
+  font-size: .62rem;
+  line-height: 1.4;
+}
+
+
+.ics-import-controls {
+  margin-top: 12px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #dfe7ee;
+  border-radius: 10px;
+}
+
+.ics-import-controls p {
+  margin: 0;
+}
+
+.ics-import-controls code {
+  font-size: .62rem;
+}
+
+.file-button.disabled {
+  opacity: .6;
+  pointer-events: none;
+}
+
+
+/* Compact calendar JSON uploader */
+.calendar-upload-copy {
+  width: 100%;
+}
+
+.calendar-upload-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.calendar-upload-heading > div {
+  min-width: 0;
+}
+
+.calendar-upload-heading .status {
+  margin-top: 0;
+  flex: 0 0 auto;
+}
+
+.calendar-import-compact {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e8edf2;
+}
+
+.calendar-import-compact .calendar-import-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.calendar-import-compact .calendar-file-button {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 165px;
+  cursor: pointer;
+}
+
+.calendar-import-compact .calendar-import-status {
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.4;
+}
+
+.calendar-import-compact small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .62rem;
+  line-height: 1.4;
+}
+
+.calendar-import-compact code,
+.calendar-upload-heading code {
+  font-size: .95em;
+}
+
+@media (max-width: 700px) {
+  .calendar-upload-heading {
+    display: grid;
+  }
+
+  .calendar-upload-heading .status {
+    justify-self: start;
+  }
+
+  .calendar-import-compact .calendar-import-actions {
+    align-items: stretch;
+  }
+
+  .calendar-import-compact .calendar-file-button {
+    width: 100%;
+  }
+}

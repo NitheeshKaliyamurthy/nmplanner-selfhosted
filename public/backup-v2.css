@@ -1,0 +1,19 @@
+.backup-v2-actions {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.backup-v2-status {
+  display: block;
+  margin-top: 0.7rem;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+.backup-v2-status[data-kind="success"] {
+  color: #166534;
+}
+
+.backup-v2-status[data-kind="error"] {
+  color: #b42318;
+}
